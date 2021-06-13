@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-// import Signin from './user/Signin';
-// import PrivateRoute from './auth/PrivateRoute';
+import Signin from './screen/Signin';
+import PrivateRoute from './PrivateRoute';
 import UserList from './screen/UserList';
-
-
+import Menu from "./core/Menu";
 
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={UserList} />
-                {/* <Route path="/shop" exact component={Shop} />
-                <Route path="/signin" exact component={Signin} />
-                <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
-                <Route path="/users/:userId" exact component={UserList} /> */}
-            </Switch>
+            <div>
+                <Menu />
+                <Switch>
+                    <PrivateRoute path="/" exact component={UserList} />
+                    <Route path="/signin" exact component={Signin} />
+                    <PrivateRoute path="/home" exact component={UserList} />
+                </Switch>
+            </div>
         </BrowserRouter>
     );
 };
